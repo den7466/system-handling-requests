@@ -19,16 +19,29 @@
     "build": "tsc",
     "dev": "npx nodemon -L src/app.ts ",
     "start": "ts-node src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "swagger:generate": "ts-node src/swagger/swagger.ts",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
+    "celebrate": "^15.0.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mongoose": "^8.14.3"
+    "express-winston": "^4.2.0",
+    "joi": "^17.13.3",
+    "mongoose": "^8.14.3",
+    "shelljs": "^0.10.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.52.0",
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.17",
+    "@types/shelljs": "^0.8.16",
+    "@types/swagger-ui-express": "^4.1.8",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
     "eslint": "^8.57.1",
