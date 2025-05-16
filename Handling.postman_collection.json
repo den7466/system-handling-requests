@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "c4292c0f-28e5-4744-9b7a-67962c52dea6",
+		"name": "Handling",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34394576"
+	},
+	"item": [
+		{
+			"name": "/handling",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Lorem Ipsum\",\r\n    \"text\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/handling/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"handling",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/handling//work/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/handling/work/6824ae96b6292e62c064c758",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"handling",
+						"work",
+						"6824ae96b6292e62c064c758"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/handling/completed/:id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resolution\": \"Super resolution\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/handling/completed/6825d26e6f3f9fa8b59aab54",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"handling",
+						"completed",
+						"6825d26e6f3f9fa8b59aab54"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/handling/canceled/:id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reasonCancellation\": \"Description text\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/handling/canceled/6825d26e6f3f9fa8b59aab54",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"handling",
+						"canceled",
+						"6825d26e6f3f9fa8b59aab54"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/handling/canceled",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reasonCancellation\": \"Description text\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/handling/canceled/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"handling",
+						"canceled",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/handling",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/handling/?startDate=2025-05-14&endDate=2025-05-14",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"handling",
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2025-05-14"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-05-14"
+						},
+						{
+							"key": "date",
+							"value": "2025-05-14",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
