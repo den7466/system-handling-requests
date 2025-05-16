@@ -2,6 +2,8 @@ import { Request, Response, NextFunction } from 'express';
 import InternalServerError from '../errors/internal-server-error';
 import Handling from '../models/handling';
 import NotFoundError from '../errors/not-found-error';
+import BadRequestError from '../errors/bad-request-error';
+import { IHandling } from '../types/types';
 
 // Получить список обращений с возможность фильтрации по конкретной дате и по диапазону дат
 export const getHandlingListByDate = async (
@@ -13,7 +15,7 @@ export const getHandlingListByDate = async (
   // #swagger.description = 'Получить список обращений с возможность фильтрации по конкретной дате и по диапазону дат'
   try {
     const { date, startDate, endDate } = req.query;
-    let result = {};
+    let result: IHandling[] | [] = [];
     const preparedDate = new Date(date?.toString() || '');
     const preparedTomorrow = new Date(date?.toString() || '');
     preparedTomorrow.setDate(preparedTomorrow.getDate() + 1);
@@ -64,7 +66,7 @@ export const getHandlingListByDate = async (
     }
 
     return res.status(200).send({
-      info: 'Список обращений', data: result,
+      info: 'Список обращений', data: result, total: result?.length,
     });
   } catch (error) {
     return next(
@@ -81,6 +83,11 @@ export const createHandling = async (
 ): Promise<any> => {
   // #swagger.description = 'Создать обращение'
   try {
+    if (!req.body) {
+      return next(
+        new BadRequestError('Ошибка запроса'),
+      );
+    }
     const { title, text } = req.body;
     const nowDate = new Date();
 
@@ -144,6 +151,11 @@ export const completedHandling = async (
   // #swagger.description = 'Завершить обработку обращения'
   try {
     const { id } = req.params;
+    if (!req.body) {
+      return next(
+        new BadRequestError('Ошибка запроса'),
+      );
+    }
     const { resolution } = req.body;
     const nowDate = new Date();
     const handling = await Handling.findOne({ _id: id });
@@ -183,6 +195,11 @@ export const canceledHandling = async (
   // #swagger.description = 'Отменить обращение'
   try {
     const { id } = req.params;
+    if (!req.body) {
+      return next(
+        new BadRequestError('Ошибка запроса'),
+      );
+    }
     const { reasonCancellation } = req.body;
     const nowDate = new Date();
     const handling = await Handling.findOne({ _id: id });
@@ -221,6 +238,11 @@ export const canceledAllHandlingAtWork = async (
   // eslint-disable-next-line max-len
   // #swagger.description = 'endpoint который отменяет все обращения, которые находятся в статусе в работе'
   try {
+    if (!req.body) {
+      return next(
+        new BadRequestError('Ошибка запроса'),
+      );
+    }
     const { reasonCancellation } = req.body;
     const nowDate = new Date();
 

@@ -20,8 +20,7 @@
     "dev": "npx nodemon -L src/app.ts ",
     "start": "ts-node src/app.ts",
     "swagger:generate": "ts-node src/swagger/swagger.ts",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui"
+    "test": "playwright test"
   },
   "dependencies": {
     "celebrate": "^15.0.3",

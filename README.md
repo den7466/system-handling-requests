@@ -1,36 +1,26 @@
 # system-handling-requests
-## Test task
+## Тестовое задание - система работы с обращениями
+#### Стек: TypeScript, NodeJS, ExpressJS, MongoDB, Docker, Swagger, Playwright
 
 ## Настройка окружения и запуск проекта
-* Установить зависимости
-  ```
-  npm i
-  ```
+### 1 - Установить зависимости
+  `npm i`
 
-* Откорректировать .env файл
+### 2 - Откорректировать .env файл
 
-* Запустить базу данных
-  ```
-  docker-compose up -d
-  ```
+### 3 - Запустить базу данных
+  `docker-compose up -d`
 
-* Запустить автоматическую генерацию документацию API
-  ```
-  npm run swagger:generate
-  ```
+### 4 - Запустить автоматическую генерацию документацию API
+  `npm run swagger:generate`
 
-* Запустить проект
-  ```
-  npm run start
+### 5 - Запустить проект
+  `npm run start`
 
-  или
+### или
+  `npm run dev`
 
-  npm run dev
+### чтобы запустить hotreload
 
-  чтобы запустить hotreload
-  ```
-
-* Также после запуска будет доступна документация API по адресу:
-  ```
-  http://localhost:3000/api-docs
-  ```
+### 6 - Также после запуска будет доступна документация API по адресу:
+  `http://localhost:3000/api-docs`
